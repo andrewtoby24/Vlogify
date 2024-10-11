@@ -41,13 +41,14 @@
                     ?>
                         <div class="col-lg-6">
                             <!-- Blog post-->
+                             <!-- substr (string, start, number) -->
                             <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="<?php echo $post['image'] ?>" alt="..." /></a>
+                                <a href="#!"><img class="card-img-top" src="<?= $post['image'] ?>" alt="..." /></a>
                                 <div class="card-body">
-                                    <div class="small text-muted"><?php echo $post['created_at'] ?></div>
-                                    <h2 class="card-title h4"><?php echo $post['title'] ?></h2>
-                                    <p class="card-text"><?php echo $post['description'] ?></p>
-                                    <a class="btn btn-primary" href="#!">Read more →</a>
+                                    <div class="small text-muted"><?= $post['created_at'] ?></div>
+                                    <h2 class="card-title h4"><?= $post['title'] ?></h2>
+                                    <p class="card-text"><?= substr($post['description'],0,150) ?>.....</p>
+                                    <a class="btn btn-primary" href="detail.php?id=<?= $post['posts_id'] ?>">Read more →</a>
                                 </div>
                             </div>
                         </div>
