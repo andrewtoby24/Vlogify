@@ -28,8 +28,15 @@
                                     <ul class="list-unstyled mb-0">
                                         <?php
                                             foreach($categories as $category) {
+                                                $c_id = $category['categories_id'];
+                                                $sql = "SELECT COUNT(posts.categories_id) 'c_count' FROM posts WHERE posts.categories_id = :CID";
+                                                $stmt = $conn->prepare($sql);
+                                                $stmt->bindParam(':CID',$c_id);
+                                                $stmt->execute();
+                                                $post = $stmt->fetch();
+                                                // var_dump($post['c_count']);
                                         ?>
-                                        <li><a href="index.php?category_id=<?= $category['categories_id'] ?>"><?= $category["categories_name"] ?></a></li>
+                                        <li><a href="index.php?category_id=<?= $category['categories_id'] ?>"><?= $category["categories_name"] ?></a> (<?= $post['c_count'] ?>)</li>
                                         <?php } ?>
                                     </ul>
                                 </div>

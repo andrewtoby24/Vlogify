@@ -39,7 +39,7 @@
                             <!-- Post meta content-->
                             <div class="text-muted fst-italic mb-2">Post On <?= date('F d,Y',strtotime($post['created_at'])) ?> by <?= $post['user_name'] ?></div>
                             <!-- Post categories-->
-                            <a class="badge bg-secondary text-decoration-none link-light" href="#!"><?= $post['category_name'] ?></a>
+                            <a class="badge bg-secondary text-decoration-none link-light" href="index.php?category_id=<?= $post['categories_id'] ?>"><?= $post['category_name'] ?></a>
                         </header>
                         <!-- Preview image figure-->
                         <figure class="mb-4"><img class="img-fluid rounded" src="<?= $post['image'] ?>" alt="..." /></figure>
